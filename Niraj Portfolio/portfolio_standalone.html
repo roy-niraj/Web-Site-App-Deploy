@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niraj Kumar - Standalone Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Exquisite Letter Animations & Styles -->
+    <style>
+        /* CSS keyframes for a highly-refined 0.9s bounce loop */
+        @keyframes letterBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+        .animate-letter {
+            display: inline-block;
+            animation: letterBounce 0.9s ease-in-out infinite;
+        }
+        
+        /* Custom scrollbar matching dark slate aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+
+        /* Glassmorphism utility classes */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+        }
+        .glass-panel:hover {
+            border-color: rgba(6, 182, 212, 0.25);
+            box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.05);
+        }
+    </style>
+
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500 selection:text-slate-950 antialiased overflow-x-hidden">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-400 to-indigo-500 flex items-center justify-center font-mono font-black text-slate-950 text-lg shadow-lg shadow-cyan-500/15">
+                    NK
+                </div>
+                <div>
+                    <span class="font-bold text-white tracking-tight">Niraj Kumar</span>
+                    <span class="block text-[10px] font-mono text-slate-500 uppercase tracking-wider">Session 2022-26</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-wider font-bold text-slate-400">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+                <a href="#education" class="hover:text-cyan-400 transition-colors">Education</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+            </nav>
+
+            <div>
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-wider font-bold hover:border-cyan-400/30 hover:text-cyan-400 transition-all">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-slate-950 text-slate-200">
+        <!-- Radial ambient background glows -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Hero Details -->
+                <div class="lg:col-span-6 flex flex-col justify-center gap-6 text-left">
+                    <div>
+                        <!-- Session Badge -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/15 rounded-full mb-4">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                            <span class="font-mono text-[10px] uppercase tracking-wider text-slate-400">B.Tech CSE • Sandip University</span>
+                        </div>
+
+                        <!-- Name Heading with infinite 0.9s letter-by-letter bounce -->
+                        <h1 class="font-sans text-5xl sm:text-6xl md:text-7xl font-black text-white leading-none tracking-tight select-none mb-3">
+                            <span class="inline-block" id="first-name-container"></span>
+                            <br/>
+                            <span class="inline-block underline decoration-cyan-500/20 decoration-wavy text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500" id="last-name-container"></span>
+                        </h1>
+                        <p class="text-lg md:text-xl font-mono text-cyan-400 font-semibold tracking-wide">
+                            AI-Augmented Developer & Data Analyst
+                        </p>
+                    </div>
+
+                    <!-- Intro Bio -->
+                    <p class="text-base text-slate-400 leading-relaxed max-w-xl md:max-w-2xl font-sans">
+                        Highly innovative B.Tech CSE graduate from Sandip University specializing in AI-Driven Web Engineering, handcrafted Data Analytics, and Professional Business Accounting. I build fully responsive, modern web applications using advanced Prompt Engineering and state-of-the-art AI systems. Conversely, I handcraft robust machine learning models and pipelines using Python, TensorFlow, and Pandas, alongside corporate financial auditing via Tally Prime ERP.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 mt-2">
+                        <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 font-bold rounded-xl shadow-lg shadow-cyan-500/10 transition-all flex items-center gap-2">
+                            View Portfolio <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#contact" class="px-6 py-3 bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 hover:border-white/20 font-semibold rounded-xl transition-all flex items-center gap-2">
+                            Contact Info <i data-lucide="mail" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <!-- Connect Links -->
+                    <div class="flex items-center gap-4 mt-4 pt-4 border-t border-white/10">
+                        <span class="text-xs font-mono text-slate-500 uppercase tracking-widest font-bold">Connect:</span>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/nirajkumar" target="_blank" rel="noopener noreferrer" class="p-2 bg-white/5 border border-white/10 rounded-lg text-slate-400 hover:text-white hover:border-cyan-500/30 transition-all">
+                                <i data-lucide="github" class="w-4 h-4"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/nirajkumar" target="_blank" rel="noopener noreferrer" class="p-2 bg-white/5 border border-white/10 rounded-lg text-slate-400 hover:text-white hover:border-cyan-500/30 transition-all">
+                                <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            </a>
+                            <a href="mailto:royniraj136@gmail.com" class="p-2 bg-white/5 border border-white/10 rounded-lg text-slate-400 hover:text-white hover:border-cyan-500/30 transition-all">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Slideshow Showcase -->
+                <div class="lg:col-span-6 flex flex-col justify-center items-center w-full">
+                    <div class="relative w-full aspect-[4/3] sm:aspect-[16/10] md:h-[420px] rounded-3xl overflow-hidden border border-white/10 bg-slate-900/60 shadow-2xl group flex flex-col justify-between">
+                        <!-- Background slides -->
+                        <div class="absolute inset-0 z-0">
+                            <div id="slide-bg" class="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-700" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200');"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20 z-10"></div>
+                            <div class="absolute inset-0 bg-slate-950/10 backdrop-blur-[1px] z-10"></div>
+                        </div>
+
+                        <!-- Slide Header: Badge and Count -->
+                        <div class="relative z-20 p-5 flex items-center justify-between w-full">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                                <span id="slide-category" class="font-mono text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/20">
+                                    AI Web Development
+                                </span>
+                            </div>
+                            <div id="slide-counter" class="font-mono text-xs text-slate-400 font-semibold bg-slate-950/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/5">
+                                01 <span class="text-slate-600">/</span> 04
+                            </div>
+                        </div>
+
+                        <!-- Manual Chevrons -->
+                        <div class="absolute inset-y-0 inset-x-4 flex items-center justify-between z-30 pointer-events-none">
+                            <button onclick="prevSlide()" class="w-10 h-10 rounded-full bg-slate-950/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-900 hover:border-cyan-500/30 transition-all pointer-events-auto cursor-pointer">
+                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                            </button>
+                            <button onclick="nextSlide()" class="w-10 h-10 rounded-full bg-slate-950/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-900 hover:border-cyan-500/30 transition-all pointer-events-auto cursor-pointer">
+                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Slide Footer Details -->
+                        <div class="relative z-20 p-6 bg-gradient-to-t from-slate-950/90 to-transparent pt-12">
+                            <p class="text-[10px] font-mono font-bold tracking-widest uppercase text-slate-400 mb-1">Active Portfolio Showcase</p>
+                            <h3 id="slide-title" class="text-xl sm:text-2xl font-black text-white tracking-tight">AI Web Development & Prompt Assembly</h3>
+                            
+                            <!-- Slide Dots Indicators -->
+                            <div class="flex gap-1.5 mt-5" id="slide-dots-container">
+                                <!-- Dots injected dynamically by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-slate-950 border-t border-b border-white/10 text-slate-200 relative overflow-hidden">
+        <!-- Sleek Gradient blur elements -->
+        <div class="absolute top-1/2 left-[-10%] w-[300px] h-[300px] bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none" />
+        <div class="absolute bottom-[-10%] right-[-10%] w-[300px] h-[300px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <!-- Section Title -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-sans text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                    Technical <span class="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">Skill Architecture</span>
+                </h2>
+                <p class="text-slate-400 mt-3 font-sans text-sm max-w-xl mx-auto">
+                    A structured repository of engineering dialects, full-stack tools, data models, and analytics workflows.
+                </p>
+                <div class="h-0.5 w-16 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-4 rounded-full" />
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12" id="skills-tabs-container">
+                <!-- Tabs will be injected here by Javascript -->
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-grid">
+                <!-- Skills will be injected here dynamically by Javascript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education & Professional Foundation Section -->
+    <section id="education" class="py-24 bg-slate-950 border-b border-white/10 text-slate-200 relative overflow-hidden">
+        <div class="absolute top-1/3 left-[-10%] w-[300px] h-[300px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none" />
+        <div class="absolute bottom-[-10%] right-[-10%] w-[300px] h-[300px] bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <!-- Section Title -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-sans text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                    Academic & <span class="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">Professional Foundation</span>
+                </h2>
+                <p class="text-slate-400 mt-3 font-sans text-sm max-w-xl mx-auto">
+                    Specializing in Computer Science & Engineering with industry-aligned internship exposure.
+                </p>
+                <div class="h-0.5 w-16 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-4 rounded-full" />
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Main Education Timeline (7 cols) -->
+                <div class="lg:col-span-7 flex flex-col justify-between">
+                    <div class="p-8 rounded-3xl bg-white/5 border border-white/10 flex-1 flex flex-col justify-between backdrop-blur-sm">
+                        <div>
+                            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                                <div class="flex items-center space-x-3">
+                                    <div class="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl">
+                                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-sans font-bold text-lg text-white">B.Tech in Computer Science & Engineering</h3>
+                                        <p class="text-sm text-cyan-400 font-semibold">Sandip University</p>
+                                        <p class="text-xs text-slate-400 font-sans mt-0.5">Computer Science & Engineering Department</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full">
+                                    <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                                    <span>2022 - 2026</span>
+                                </div>
+                            </div>
+
+                            <p class="text-slate-300 text-sm leading-relaxed mb-6 font-sans">
+                                Completed rigorous software engineering and theoretical computer science curriculums, building an understanding of computational logic, algorithms, machine learning models, and performance optimization.
+                            </p>
+
+                            <!-- Coursework List -->
+                            <div>
+                                <h4 class="font-sans font-bold text-xs text-slate-400 uppercase tracking-wider mb-3 flex items-center space-x-2">
+                                    <i data-lucide="book-open" class="w-3.5 h-3.5 text-slate-500"></i>
+                                    <span>Core Coursework & Specialization modules</span>
+                                </h4>
+                                <div class="flex flex-wrap gap-2" id="courses-container">
+                                    <!-- Coursework items will be injected by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GPA Highlight block -->
+                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] font-mono text-slate-500 block uppercase tracking-wider">CUMULATIVE GPA</span>
+                                <span class="font-sans text-2xl font-black text-white">8.1 / 10.0</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[10px] font-mono text-slate-500 block uppercase tracking-wider">ACADEMIC STANDING</span>
+                                <span class="font-sans text-sm font-bold text-cyan-400">First Class with Distinction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Internship (5 cols) -->
+                <div class="lg:col-span-5">
+                    <div class="p-8 rounded-3xl bg-white/5 border border-white/10 h-full flex flex-col justify-between backdrop-blur-sm">
+                        <div>
+                            <h3 class="font-sans font-bold text-lg text-white mb-6 flex items-center space-x-2.5">
+                                <i data-lucide="briefcase" class="w-5 h-5 text-indigo-400"></i>
+                                <span>Professional Internship</span>
+                            </h3>
+
+                            <div class="space-y-6">
+                                <div class="border-l-2 border-indigo-500 pl-4">
+                                    <span class="text-[10px] font-mono text-indigo-400 block uppercase tracking-widest font-semibold">3-MONTH EXPERIENCE</span>
+                                    <h4 class="font-sans font-bold text-base text-white mt-1">
+                                        AI & Machine Learning Intern
+                                    </h4>
+                                    <p class="text-xs text-slate-300 font-medium mt-1">
+                                        Ardent Computech Pvt. Ltd., Kolkata
+                                    </p>
+                                    
+                                    <ul class="text-xs text-slate-400 mt-4 space-y-2.5 list-disc pl-4 font-sans leading-relaxed">
+                                        <li>Acquired core theoretical knowledge and practical hands-on experience in training custom Machine Learning classifiers.</li>
+                                        <li>Implemented automated predictive workflows and structural pipelines using standard Python, Pandas, and NumPy libraries.</li>
+                                        <li>Developed end-to-end classification systems, diagnostic evaluation charts, and accuracy tracking frameworks.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-indigo-500/10 border border-white/10 flex items-center space-x-3">
+                            <i data-lucide="compass" class="w-5 h-5 text-cyan-400 flex-shrink-0"></i>
+                            <p class="text-[10px] font-mono text-slate-400 leading-normal uppercase tracking-wider">
+                                Applying algorithmic foundations and ML concepts directly into production-grade solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Portfolio Section -->
+    <section id="projects" class="py-24 bg-slate-950 text-slate-200 relative overflow-hidden">
+        <!-- Background Accent glow -->
+        <div class="absolute top-1/3 right-1/4 w-[350px] h-[350px] bg-cyan-600/10 rounded-full blur-[110px] pointer-events-none" />
+        <div class="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] bg-indigo-600/10 rounded-full blur-[90px] pointer-events-none" />
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <!-- Section Title -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-sans text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                    Portfolio <span class="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">Showcase</span>
+                </h2>
+                <p class="text-slate-400 mt-3 font-sans text-sm max-w-xl mx-auto">
+                    Explore 30+ highly-polished software models, neural networks, and analytical systems crafted across four key domains.
+                </p>
+                <div class="h-0.5 w-16 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-4 rounded-full" />
+            </div>
+
+            <!-- Search & Tabs Controls -->
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-10">
+                
+                <!-- Navigation Tab Pills (Glassmorphic) -->
+                <div class="flex flex-wrap gap-1.5 bg-white/5 p-1.5 rounded-2xl border border-white/10 w-fit backdrop-blur-md" id="projects-tabs-container">
+                    <!-- Tabs with count badges will be injected here by JS -->
+                </div>
+
+                <!-- Search Box (Glassmorphic) -->
+                <div class="relative w-full lg:w-80">
+                    <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4"></i>
+                    <input
+                        type="text"
+                        id="projects-search-input"
+                        oninput="handleSearchChange(this.value)"
+                        placeholder="Search code stack or tags..."
+                        class="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-2xl text-xs uppercase tracking-wider font-medium text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500/40 focus:bg-white/10 transition-all duration-300"
+                    />
+                </div>
+
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                <!-- Projects injected here dynamically by Javascript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Inbox Section -->
+    <section id="contact" class="py-24 bg-slate-950 text-slate-200 relative overflow-hidden border-t border-white/10">
+        <!-- Background blur overlays -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[110px] pointer-events-none" />
+        <div class="absolute bottom-[-10%] left-[5%] w-[250px] h-[250px] bg-cyan-600/10 rounded-full blur-[90px] pointer-events-none" />
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <!-- Section Title -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-sans text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                    Connect <span class="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">With Me</span>
+                </h2>
+                <p class="text-slate-400 mt-3 font-sans text-sm max-w-xl mx-auto">
+                    Ready to collaborate on engineering solutions, analytical dashboards, or predictive modeling? Drop a message!
+                </p>
+                <div class="h-0.5 w-16 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-4 rounded-full" />
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Social Links & Info Block & Local Messages Log (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="p-8 rounded-3xl bg-white/5 border border-white/10 space-y-6 backdrop-blur-sm">
+                        <h3 class="font-sans font-bold text-lg text-white">Professional Handles</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed font-sans">
+                            Feel free to browse my codebases on GitHub, evaluate my endorsements and background on LinkedIn, or shoot me a direct email coordinate.
+                        </p>
+
+                        <!-- Direct Social Grid -->
+                        <div class="space-y-4">
+                            <a href="https://github.com/nirajkumar" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-950/60 border border-white/5 hover:border-cyan-500/30 transition-all duration-300 group">
+                                <div class="p-2.5 rounded-xl bg-slate-900 text-slate-400 group-hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[9px] font-mono text-slate-500 uppercase tracking-widest">GitHub Repository</span>
+                                    <span class="font-sans text-sm font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">github.com/nirajkumar</span>
+                                </div>
+                            </a>
+
+                            <a href="https://linkedin.com/in/nirajkumar" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-950/60 border border-white/5 hover:border-cyan-500/30 transition-all duration-300 group">
+                                <div class="p-2.5 rounded-xl bg-slate-900 text-slate-400 group-hover:text-white transition-colors">
+                                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[9px] font-mono text-slate-500 uppercase tracking-widest">LinkedIn Profile</span>
+                                    <span class="font-sans text-sm font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">linkedin.com/in/nirajkumar</span>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-950/60 border border-white/5 hover:border-cyan-500/30 transition-all duration-300 group">
+                                <div class="p-2.5 rounded-xl bg-slate-900 text-slate-400 group-hover:text-white transition-colors">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[9px] font-mono text-slate-500 uppercase tracking-widest">Direct Email</span>
+                                    <a href="mailto:royniraj136@gmail.com" class="font-sans text-sm font-bold text-slate-200 hover:text-cyan-400 transition-colors">royniraj136@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-950/60 border border-white/5 hover:border-cyan-500/30 transition-all duration-300 group">
+                                <div class="p-2.5 rounded-xl bg-slate-900 text-slate-400 group-hover:text-white transition-colors">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-[9px] font-mono text-slate-500 uppercase tracking-widest">Call / WhatsApp</span>
+                                    <a href="tel:6209848133" class="font-sans text-sm font-bold text-slate-200 hover:text-cyan-400 transition-colors">6209848133</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Local Messages Log (Live client-side database mirroring Contact.tsx) -->
+                    <div id="local-messages-panel" class="hidden p-6 rounded-3xl bg-white/5 border border-white/10 space-y-4 backdrop-blur-sm">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-sans font-bold text-xs uppercase tracking-wider text-white flex items-center space-x-2">
+                                <i data-lucide="messages-square" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Local Messages Log</span>
+                            </h3>
+                            <span class="text-[10px] font-mono text-slate-500 uppercase">Saved locally</span>
+                        </div>
+                        <div class="space-y-3 max-h-60 overflow-y-auto pr-1" id="local-messages-list">
+                            <!-- Local items will be injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Block (7 cols) -->
+                <div class="lg:col-span-7">
+                    <div class="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm relative">
+                        <h3 class="font-sans font-bold text-lg text-white mb-6">Leave a Message</h3>
+                        
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-5" id="contact-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-2 font-bold">Your Name *</label>
+                                    <input
+                                        type="text"
+                                        id="form-name"
+                                        required
+                                        placeholder="e.g. Rahul Sharma"
+                                        class="w-full px-4 py-3 bg-slate-950/60 border border-white/5 focus:bg-white/5 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500/40 transition-all duration-300"
+                                    />
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-2 font-bold">Email Address *</label>
+                                    <input
+                                        type="email"
+                                        id="form-email"
+                                        required
+                                        placeholder="e.g. rahul@example.com"
+                                        class="w-full px-4 py-3 bg-slate-950/60 border border-white/5 focus:bg-white/5 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500/40 transition-all duration-300"
+                                    />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-2 font-bold">Message Context *</label>
+                                <textarea
+                                    rows="5"
+                                    id="form-message"
+                                    required
+                                    placeholder="Describe project specifications, technology stacks, or opportunities..."
+                                    class="w-full px-4 py-3 bg-slate-950/60 border border-white/5 focus:bg-white/5 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500/40 transition-all duration-300 resize-none"
+                                ></textarea>
+                            </div>
+
+                            <!-- Form Response Feedback alerts -->
+                            <div id="form-error-alert" class="hidden p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs flex items-center space-x-2">
+                                <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+                                <span id="form-error-text">Please fill in all the required fields.</span>
+                            </div>
+
+                            <div id="form-success-alert" class="hidden p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs flex items-center space-x-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 flex-shrink-0"></i>
+                                <span>Your message has been sent successfully! Thank you for connecting.</span>
+                            </div>
+
+                            <button
+                                type="submit"
+                                id="form-submit-btn"
+                                class="w-full py-3.5 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-sans font-bold rounded-xl flex items-center justify-center space-x-2.5 transition-all duration-300 shadow-lg shadow-cyan-500/10 cursor-pointer disabled:opacity-50 hover:scale-[1.01]"
+                            >
+                                <span class="text-sm font-bold uppercase tracking-wider">Transmit Message</span>
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-white/5 text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-mono text-cyan-400 font-bold">&copy; 2026</span>
+                <span>Niraj Kumar. All Rights Reserved.</span>
+            </div>
+            <div class="flex items-center gap-6 font-mono text-xs">
+                <span>Designed & Programmed with 100% AI Prompts</span>
+                <span class="text-cyan-500">B.Tech CSE</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- All Portfolio Datasets & Engine Controller -->
+    <script>
+        // 1. ALL 31 PROJECTS (Replicated perfectly from portfolioData.ts)
+        const projectsData = [
+            // === WEB DEVELOPMENT (6 Projects) ===
+            {
+                id: "web-1",
+                title: "Bihar Employment Overseas Portal",
+                description: "Built using Google AI Studio, Replit AI, and Lovable AI. A responsive overseas employment portal connecting job seekers with international opportunities, featuring interactive forms and real-time job listings.",
+                category: "Web Development",
+                tech: ["React", "HTML/CSS", "JavaScript", "Tailwind CSS"],
+                github: "https://github.com/nirajkumar/bihar-employment",
+                live: "",
+                metric: "AI Generated"
+            },
+            {
+                id: "web-2",
+                title: "Royal Dairy Farm Website",
+                description: "Built using Google AI Studio, Replit AI, and Lovable AI. A modern, digital presence for a dairy farm, showcasing products, milk subscription management, and farm details with a sleek UI.",
+                category: "Web Development",
+                tech: ["React", "JavaScript", "Tailwind CSS", "LocalForage"],
+                github: "https://github.com/nirajkumar/royal-dairy-farm",
+                live: "",
+                metric: "AI Generated"
+            },
+            {
+                id: "web-3",
+                title: "Royal Furniture House Platform",
+                description: "Built using Google AI Studio, Replit AI, and Lovable AI. An e-commerce platform for a premium furniture brand, including dynamic product catalogs, shopping cart logic, and a visually engaging showcase.",
+                category: "Web Development",
+                tech: ["React", "JavaScript", "Tailwind CSS", "State Management"],
+                github: "https://github.com/nirajkumar/royal-furniture",
+                live: "",
+                metric: "AI Generated"
+            },
+            {
+                id: "web-4",
+                title: "AI Personal Chatbot",
+                description: "Built using Google AI Studio, Replit AI, and Lovable AI. An intelligent personal assistant web interface integrating natural language processing models to provide instant conversational responses.",
+                category: "Web Development",
+                tech: ["React", "LLM APIs", "JavaScript", "Tailwind CSS"],
+                github: "https://github.com/nirajkumar/ai-chatbot",
+                live: "",
+                metric: "AI Generated"
+            },
+            {
+                id: "web-5",
+                title: "Smart Finance Budget Tracker",
+                description: "Built using Google AI Studio, Replit AI, and Lovable AI. A responsive personal budget dashboard integrating interactive data visualization and local state savings for real-time expense projections.",
+                category: "Web Development",
+                tech: ["React", "JavaScript", "Tailwind CSS", "Recharts"],
+                github: "https://github.com/nirajkumar/smart-finance",
+                live: "",
+                metric: "AI Generated"
+            },
+            {
+                id: "web-6",
+                title: "Interactive AI Portfolio Showcase",
+                description: "Built using Google AI Studio, Replit AI, and Lovable AI. A fast, modern portfolio highlighting personal skills, engineering workflows, and predictive pipelines, built entirely with generative design prompts.",
+                category: "Web Development",
+                tech: ["React", "TypeScript", "Tailwind CSS", "Motion"],
+                github: "https://github.com/nirajkumar/ai-portfolio",
+                live: "https://nirajkumar-portfolio.vercel.app",
+                metric: "AI Generated"
+            },
+
+            // === MACHINE LEARNING (10 Projects) ===
+            {
+                id: "ml-1",
+                title: "Foliar Disease Diagnostic Classifier",
+                description: "Developed a convolutional neural network (CNN) in TensorFlow to classify 10+ leaf blight and rust states from agricultural images, enabling farmers to identify plant diseases.",
+                category: "Machine Learning",
+                tech: ["Python", "TensorFlow", "Keras", "OpenCV", "Streamlit"],
+                github: "https://github.com/nirajkumar/plant-disease-tf",
+                live: "",
+                metric: "94.5% TensorFlow Acc"
+            },
+            {
+                id: "ml-2",
+                title: "Customer Churn Prediction Engine",
+                description: "An end-to-end classification pipeline built using Scikit-Learn. Employs SMOTE to address class imbalance, training Random Forest and XGBoost classifiers to predict customer retention.",
+                category: "Machine Learning",
+                tech: ["Python", "Scikit-Learn", "SMOTE", "Pandas", "NumPy"],
+                github: "https://github.com/nirajkumar/customer-churn-sklearn",
+                live: "",
+                metric: "0.91 F1-Score (Sklearn)"
+            },
+            {
+                id: "ml-3",
+                title: "Predictive Housing Valuation Engine",
+                description: "A regression pipeline utilizing Scikit-Learn Gradient Boosting to predict regional real estate pricing based on macroeconomic features and geographic indicators.",
+                category: "Machine Learning",
+                tech: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Matplotlib"],
+                github: "https://github.com/nirajkumar/house-pricing-regressor",
+                live: "",
+                metric: "Median Absolute Error < 4.8%"
+            },
+            {
+                id: "ml-4",
+                title: "Voucher Fraud Detection Network",
+                description: "An anomaly detection algorithm utilizing Scikit-Learn Isolation Forests to parse financial general ledgers, identifying duplicate vouchers or unapproved debit postings.",
+                category: "Machine Learning",
+                tech: ["Python", "Scikit-Learn", "Pandas", "Seaborn", "Accounting Data"],
+                github: "https://github.com/nirajkumar/voucher-fraud-detector",
+                live: "",
+                metric: "Flagged 92% Outliers"
+            },
+            {
+                id: "ml-5",
+                title: "Brain Tumor Segmentation Network",
+                description: "A convolutional neural network model utilizing TensorFlow to segment MRI brain scans into tumor regions, featuring deep residual connections for high edge-precision.",
+                category: "Machine Learning",
+                tech: ["Python", "TensorFlow", "Keras", "NumPy", "Matplotlib"],
+                github: "https://github.com/nirajkumar/tumor-segmentation-tf",
+                live: "",
+                metric: "92.8% Dice Coefficient"
+            },
+            {
+                id: "ml-6",
+                title: "E-Commerce Review Sentiment Classifier",
+                description: "A natural language classification model built using TensorFlow LSTM layers to categorize review databases into distinct positive, neutral, and negative sentiment scales.",
+                category: "Machine Learning",
+                tech: ["Python", "TensorFlow", "Pandas", "NumPy", "NLTK"],
+                github: "https://github.com/nirajkumar/review-sentiment-lstm",
+                live: "",
+                metric: "89% Validation Acc"
+            },
+            {
+                id: "ml-7",
+                title: "Spam Guard: Email Phishing Filter",
+                description: "A classic text classification engine built with Scikit-Learn TF-IDF vectorizers and Multinomial Naive Bayes algorithms to intercept fraudulent emails.",
+                category: "Machine Learning",
+                tech: ["Python", "Scikit-Learn", "NLTK", "Pandas", "NumPy"],
+                github: "https://github.com/nirajkumar/spam-guard-bayes",
+                live: "",
+                metric: "99.1% Accuracy Rate"
+            },
+            {
+                id: "ml-8",
+                title: "Heart Disease Risk Profiler",
+                description: "An health analytics pipeline implementing Scikit-Learn Logistic Regression and Support Vector Machines (SVM) to classify diagnostic health risk tiers.",
+                category: "Machine Learning",
+                tech: ["Python", "Scikit-Learn", "Pandas", "Matplotlib", "Seaborn"],
+                github: "https://github.com/nirajkumar/heart-risk-svm",
+                live: "",
+                metric: "91.2% Test Sensitivity"
+            },
+            {
+                id: "ml-9",
+                title: "Credit Scoring Classifier Model",
+                description: "Developed a credit scoring system using Scikit-Learn's Decision Trees and Random Forests, grading borrower risk profiles based on historic ledger datasets.",
+                category: "Machine Learning",
+                tech: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Seaborn"],
+                github: "https://github.com/nirajkumar/credit-scoring-model",
+                live: "",
+                metric: "ROC-AUC of 0.88"
+            },
+            {
+                id: "ml-10",
+                title: "Sign Language Landmark Estimator",
+                description: "A computer vision model tracking hand coordinate landmarks via OpenCV, paired with a TensorFlow dense network to classify hand signs into text.",
+                category: "Machine Learning",
+                tech: ["Python", "TensorFlow", "OpenCV", "NumPy", "Matplotlib"],
+                github: "https://github.com/nirajkumar/signlang-estimator",
+                live: "",
+                metric: "93.4% Edge Accuracy"
+            },
+
+            // === DATA ANALYTICS (7 Projects) ===
+            {
+                id: "da-2",
+                title: "Retail Profitability & Cohort Power BI Dashboard",
+                description: "An interactive Power BI reporting dashboard profiling retail sales transactions, customer retention trends, profit margin distribution, and product cohort performance. Handcrafted metrics using DAX formulas.",
+                category: "Data Analytics",
+                tech: ["Power BI", "DAX Formulas", "Data Modeling", "Excel Data Source"],
+                github: "https://github.com/nirajkumar/retail-powerbi-dashboard",
+                live: "",
+                metric: "Handcrafted Power BI"
+            },
+            {
+                id: "da-4",
+                title: "Agricultural Crop Yield Dynamics: Geo-EDA",
+                description: "An exploratory analysis of Indian regional crop production. Handcrafted NumPy and Pandas scripts filter geographical datasets, charting spatial rainfall-yield correlations over 20 years.",
+                category: "Data Analytics",
+                tech: ["Python", "Pandas", "NumPy", "Seaborn", "Matplotlib"],
+                github: "https://github.com/nirajkumar/crop-yield-eda",
+                live: "",
+                metric: "Handcrafted Python EDA"
+            },
+            {
+                id: "da-6",
+                title: "Global Supply Chain Delays & Bottleneck Audit",
+                description: "Operational analysis plotting shipping latency across international hubs. Handcrafted Pandas & Seaborn scripts were used to isolate high-delay routes and calculate carrier reliability matrices.",
+                category: "Data Analytics",
+                tech: ["Python", "Pandas", "NumPy", "Seaborn", "Matplotlib"],
+                github: "https://github.com/nirajkumar/supplychain-bottleneck-audit",
+                live: "",
+                metric: "Handcrafted EDA Pipeline"
+            },
+            {
+                id: "da-7",
+                title: "Financial Portfolio VaR Monte Carlo Assessor",
+                description: "An empirical asset forecaster parsing daily stock feeds. Handcrafted NumPy and Pandas scripts execute 10,000 Monte Carlo iterations to evaluate risk volatility over a 12-month span.",
+                category: "Data Analytics",
+                tech: ["Python", "NumPy", "Pandas", "Matplotlib", "Seaborn"],
+                github: "https://github.com/nirajkumar/portfolio-var-montecarlo",
+                live: "",
+                metric: "Handcrafted Math Engine"
+            },
+            {
+                id: "da-8",
+                title: "AQI Geo-Spatial Temporal Analytics Tracker",
+                description: "An environmental analysis profiling seasonal air-quality patterns. Handcrafted NumPy-based moving averages smoothed out noise, while Matplotlib plotted localized pollution spikes.",
+                category: "Data Analytics",
+                tech: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
+                github: "https://github.com/nirajkumar/aqi-temporal-tracker",
+                live: "",
+                metric: "Handcrafted Spatial EDA"
+            },
+            {
+                id: "da-9",
+                title: "Student Performance Determinants: ANOVA Statistical EDA",
+                description: "A quantitative analysis of learning parameters (sleep, internet, study hours) mapping correlation and significance benchmarks via NumPy, Pandas, and Seaborn scripts written manually.",
+                category: "Data Analytics",
+                tech: ["Python", "Pandas", "NumPy", "Seaborn", "Matplotlib"],
+                github: "https://github.com/nirajkumar/student-performance-eda",
+                live: "",
+                metric: "Handcrafted ANOVA"
+            },
+            {
+                id: "da-10",
+                title: "Telecom Customer Retention Power BI Desk",
+                description: "An executive-level Power BI report illustrating subscriber churn rates, average revenue per user (ARPU), contract distributions, and predictive churn indicators configured with custom DAX data queries.",
+                category: "Data Analytics",
+                tech: ["Power BI", "DAX Formulas", "Data Wrangling", "Data Cleaning"],
+                github: "https://github.com/nirajkumar/telecom-churn-powerbi",
+                live: "",
+                metric: "Handcrafted Dashboard"
+            },
+
+            // === ACCOUNTING & FINANCE (4 Projects) ===
+            {
+                id: "ac-1",
+                title: "Corporate Balance Sheet Audit & Cleansing Portal",
+                description: "A comprehensive financial data cleaning pipeline written in Pandas and NumPy that ingests messy Excel ledger sheets exported from Tally Prime, fixes mismatching dates, and generates audited accounting schemas.",
+                category: "Accounting & Finance",
+                tech: ["Python", "Pandas", "NumPy", "Tally Prime ERP", "Excel"],
+                github: "https://github.com/nirajkumar/ledger-audit-cleaner",
+                live: "",
+                metric: "Tally Prime & Pandas"
+            },
+            {
+                id: "ac-2",
+                title: "GST Compliance & Auditing Analysis",
+                description: "A script-based diagnostic engine parsing business transaction histories with Pandas to verify GST tax compliance, mismatch identification, and input tax credit distributions against government rules.",
+                category: "Accounting & Finance",
+                tech: ["Python", "Pandas", "Seaborn", "GST Auditing Rules"],
+                github: "https://github.com/nirajkumar/gst-compliance-tracker",
+                live: "",
+                metric: "GST Compliance Audits"
+            },
+            {
+                id: "ac-3",
+                title: "Tally Prime ERP Voucher Trend Analytics",
+                description: "A Python pipeline extracting raw XML ledger logs from Tally Prime, performing intense cleaning, and structuring data into monthly spending trends and budget forecast dashboards.",
+                category: "Accounting & Finance",
+                tech: ["Python", "Pandas", "Matplotlib", "XML Parser", "Tally Prime"],
+                github: "https://github.com/nirajkumar/tally-voucher-analytics",
+                live: "",
+                metric: "Tally XML Automation"
+            },
+            {
+                id: "ac-4",
+                title: "Dual-Entry Automated Bank Reconciliation",
+                description: "Handcrafted Python program parsing standard Excel bank statements and reconciling them against Tally Prime dual-entry debit/credit ledger records to spot transaction omissions.",
+                category: "Accounting & Finance",
+                tech: ["Python", "Pandas", "Tally Prime XML", "Regex Parser"],
+                github: "https://github.com/nirajkumar/tally-bank-reconciler",
+                live: "",
+                metric: "Dual-Entry Audit"
+            }
+        ];
+
+        // 2. SKILLS TAXONOMY DATA
+        const skillsData = [
+            { name: "Python", level: 95, category: "languages" },
+            { name: "Google AI Studio", level: 96, category: "tools" },
+            { name: "Claude AI & ChatGPT Prompting", level: 95, category: "tools" },
+            { name: "DeepSeek & Blackbox AI", level: 94, category: "tools" },
+            { name: "Replit AI & Lovable AI", level: 93, category: "tools" },
+            { name: "JavaScript (ES6+)", level: 90, category: "languages" },
+            { name: "HTML5 / CSS3", level: 93, category: "languages" },
+            { name: "SQL", level: 85, category: "languages" },
+            { name: "Generative Code Assembly", level: 95, category: "web" },
+            { name: "React.js Framework", level: 90, category: "web" },
+            { name: "Responsive UI (Tailwind)", level: 92, category: "web" },
+            { name: "Web Integration Architecture", level: 88, category: "web" },
+            { name: "TensorFlow", level: 82, category: "ml" },
+            { name: "Scikit-Learn", level: 88, category: "ml" },
+            { name: "Predictive Analytics", level: 85, category: "ml" },
+            { name: "Model Tuning & Evaluation", level: 84, category: "ml" },
+            { name: "Pandas & NumPy", level: 94, category: "data" },
+            { name: "Power BI Dashboards", level: 90, category: "data" },
+            { name: "Data Cleaning & Preprocessing", level: 95, category: "data" },
+            { name: "Matplotlib & Seaborn", level: 91, category: "data" },
+            { name: "Tally Prime ERP", level: 92, category: "accounting" },
+            { name: "Business Accounting & Ledger Audit", level: 90, category: "accounting" },
+            { name: "GST Compliance & computation", level: 88, category: "accounting" },
+            { name: "Git & Version Control", level: 88, category: "tools" }
+        ];
+
+        // 3. SLIDESHOW DATA
+        const slideshowImages = [
+            {
+                url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200",
+                category: "AI Web Development",
+                title: "Generative Web Assembly"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1527474305487-b87b222841cc?q=80&w=1200",
+                category: "Machine Learning",
+                title: "Handcrafted TensorFlow Neural Networks"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
+                category: "Data Analytics",
+                title: "Interactive Power BI & Pandas Dashboards"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200",
+                category: "Tally Prime",
+                title: "Double-Entry Bookkeeping & GST Compliance"
+            }
+        ];
+
+        // 4. COURSEWORK DATA
+        const coursesData = [
+            'Data Structures & Algorithms',
+            'Database Management (SQL)',
+            'Machine Learning (Sklearn)',
+            'Business Accounting (Tally Prime)',
+            'Data Cleaning & Profiling',
+            'Prompt Engineering for Software',
+            'Business Intelligence (Power BI)'
+        ];
+
+        // State Trackers
+        let currentSlideIdx = 0;
+        let activeSkillCategory = 'all';
+        let activeProjectCategory = 'Web Development';
+        let projectSearchQuery = '';
+        let localMessages = [];
+
+        // Dynamic Projects Categories list (TABS)
+        const projectsTabs = [
+            'Web Development',
+            'Machine Learning',
+            'Data Analytics',
+            'Accounting & Finance'
+        ];
+
+        // Skills Categories list
+        const skillsCategories = [
+            { id: 'all', label: 'All Skills', icon: 'sparkles' },
+            { id: 'languages', label: 'Languages', icon: 'code-2' },
+            { id: 'web', label: 'AI Web Dev', icon: 'cpu' },
+            { id: 'ml', label: 'Machine Learning', icon: 'award' },
+            { id: 'data', label: 'Data Analytics', icon: 'bar-chart-3' },
+            { id: 'accounting', label: 'Tally & Accounting', icon: 'calculator' },
+            { id: 'tools', label: 'AI & Dev Tools', icon: 'wrench' }
+        ];
+
+        // === INITIALIZATION ===
+        window.addEventListener('DOMContentLoaded', () => {
+            initNameAnimations();
+            renderSlide();
+            renderSkillsTabs();
+            renderSkills();
+            renderCoursework();
+            renderProjectsTabs();
+            renderProjects();
+            loadLocalMessages();
+            
+            // Auto-advance slideshow every 4.5 seconds
+            setInterval(nextSlide, 4500);
+            
+            // Render initial Lucide icons
+            lucide.createIcons();
+        });
+
+        // 5. NAME LETTER-BY-LETTER BOUNCING (Infinite 0.9s delay-staggered wave loop)
+        function initNameAnimations() {
+            const firstName = "Niraj";
+            const lastName = "Kumar";
+            
+            const firstContainer = document.getElementById("first-name-container");
+            const lastContainer = document.getElementById("last-name-container");
+
+            // Format first name letter-by-letter
+            firstContainer.innerHTML = Array.from(firstName).map((char, index) => {
+                return `<span class="animate-letter text-white" style="animation-delay: ${index * 0.08}s; animation-duration: 0.9s;">${char}</span>`;
+            }).join('');
+
+            // Format last name letter-by-letter
+            lastContainer.innerHTML = Array.from(lastName).map((char, index) => {
+                const isSpace = char === ' ';
+                const whiteSpaceStyle = isSpace ? 'white-space: pre;' : '';
+                return `<span class="animate-letter" style="animation-delay: ${(firstName.length + index) * 0.08}s; animation-duration: 0.9s; ${whiteSpaceStyle}">${char}</span>`;
+            }).join('');
+        }
+
+        // 6. HERO SLIDESHOW RENDERER
+        function renderSlide() {
+            const slide = slideshowImages[currentSlideIdx];
+            document.getElementById("slide-bg").style.backgroundImage = `url('${slide.url}')`;
+            document.getElementById("slide-category").textContent = slide.category;
+            document.getElementById("slide-title").textContent = slide.title;
+            document.getElementById("slide-counter").innerHTML = `${(currentSlideIdx + 1).toString().padStart(2, '0')} <span class="text-slate-600">/</span> ${slideshowImages.length.toString().padStart(2, '0')}`;
+            
+            // Dots indices
+            const dotsContainer = document.getElementById("slide-dots-container");
+            dotsContainer.innerHTML = slideshowImages.map((_, idx) => {
+                const isActive = idx === currentSlideIdx;
+                const dotClass = isActive ? 'bg-cyan-400 w-8' : 'bg-white/20 w-2 hover:bg-white/40';
+                return `<button onclick="goToSlide(${idx})" class="h-1.5 rounded-full transition-all duration-300 cursor-pointer ${dotClass}"></button>`;
+            }).join('');
+        }
+
+        function nextSlide() {
+            currentSlideIdx = (currentSlideIdx + 1) % slideshowImages.length;
+            renderSlide();
+        }
+
+        function prevSlide() {
+            currentSlideIdx = (currentSlideIdx - 1 + slideshowImages.length) % slideshowImages.length;
+            renderSlide();
+        }
+
+        function goToSlide(idx) {
+            currentSlideIdx = idx;
+            renderSlide();
+        }
+
+        // 7. SKILLS MATRICES RENDERER
+        function renderSkillsTabs() {
+            const container = document.getElementById("skills-tabs-container");
+            container.innerHTML = skillsCategories.map(cat => {
+                const isActive = activeSkillCategory === cat.id;
+                const buttonClass = isActive 
+                    ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-lg shadow-cyan-500/20 scale-105 border border-cyan-400/20' 
+                    : 'bg-white/5 text-slate-400 border border-white/10 hover:border-white/25 hover:text-white';
+                
+                return `
+                    <button
+                        onclick="setSkillCategory('${cat.id}')"
+                        class="flex items-center space-x-2 px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-semibold transition-all duration-300 cursor-pointer ${buttonClass}"
+                    >
+                        <i data-lucide="${cat.icon}" class="w-3.5 h-3.5"></i>
+                        <span>${cat.label}</span>
+                    </button>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        function setSkillCategory(catId) {
+            activeSkillCategory = catId;
+            renderSkillsTabs();
+            renderSkills();
+        }
+
+        function renderSkills() {
+            const container = document.getElementById("skills-grid");
+            const filtered = activeSkillCategory === 'all' 
+                ? skillsData 
+                : skillsData.filter(s => s.category === activeSkillCategory);
+
+            container.innerHTML = filtered.map((skill, index) => {
+                return `
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/30 transition-all duration-300 group backdrop-blur-sm">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-sans font-bold text-white group-hover:text-cyan-300 transition-colors text-sm">
+                                ${skill.name}
+                            </span>
+                            <span class="font-mono text-xs text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
+                                ${skill.level}%
+                            </span>
+                        </div>
+                        
+                        <!-- Progress bar -->
+                        <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full transition-all duration-1000" style="width: ${skill.level}%"></div>
+                        </div>
+
+                        <div class="flex items-center justify-between mt-3 text-[9px] font-mono text-slate-500 tracking-wider">
+                            <span>FOUNDATION</span>
+                            <span>PRODUCTION LEVEL</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 8. EDUCATION COURSEWORK RENDERER
+        function renderCoursework() {
+            const container = document.getElementById("courses-container");
+            container.innerHTML = coursesData.map(course => {
+                return `
+                    <span class="text-[11px] font-mono uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-950/60 border border-white/5 text-slate-400 hover:border-white/15 hover:text-white transition-all duration-300">
+                        ${course}
+                    </span>
+                `;
+            }).join('');
+        }
+
+        // 9. PROJECTS PORTFOLIO RENDERER (with dynamic tab count badges and full search index)
+        function renderProjectsTabs() {
+            const container = document.getElementById("projects-tabs-container");
+            container.innerHTML = projectsTabs.map(tab => {
+                const isActive = activeProjectCategory === tab;
+                const count = projectsData.filter(p => p.category === tab).length;
+                
+                const tabClass = isActive 
+                    ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-lg shadow-cyan-500/15 border border-cyan-400/20' 
+                    : 'text-slate-400 hover:text-white';
+                
+                const badgeClass = isActive 
+                    ? 'bg-white/10 text-cyan-200' 
+                    : 'bg-slate-950/60 text-slate-500';
+
+                return `
+                    <button
+                        onclick="setProjectCategory('${tab}')"
+                        class="px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 cursor-pointer flex items-center ${tabClass}"
+                    >
+                        <span>${tab}</span>
+                        <span class="ml-2 px-2 py-0.5 text-[10px] font-mono rounded-md ${badgeClass}">
+                            ${count}
+                        </span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function setProjectCategory(tabName) {
+            activeProjectCategory = tabName;
+            projectSearchQuery = '';
+            document.getElementById("projects-search-input").value = '';
+            renderProjectsTabs();
+            renderProjects();
+        }
+
+        function handleSearchChange(query) {
+            projectSearchQuery = query.toLowerCase().trim();
+            renderProjects();
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById("projects-grid");
+            
+            const filtered = projectsData.filter(project => {
+                const matchesCategory = project.category === activeProjectCategory;
+                const matchesSearch = projectSearchQuery === '' ||
+                    project.title.toLowerCase().includes(projectSearchQuery) ||
+                    project.description.toLowerCase().includes(projectSearchQuery) ||
+                    project.tech.some(t => t.toLowerCase().includes(projectSearchQuery));
+                
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center text-slate-500 flex flex-col items-center justify-center space-y-3">
+                        <i data-lucide="alert-circle" class="w-8 h-8 text-slate-600"></i>
+                        <p class="font-sans text-xs uppercase tracking-widest text-slate-400">No matching projects found.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            grid.innerHTML = filtered.map(project => {
+                const techBadges = project.tech.map(t => {
+                    return `<span class="text-[9px] font-mono font-bold tracking-wider bg-slate-950/60 text-slate-400 px-2.5 py-1 rounded-md border border-white/5 uppercase">${t}</span>`;
+                }).join(' ');
+
+                const actionLink = project.live 
+                    ? `<a href="${project.live}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                        <span>Live demo</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                       </a>`
+                    : `<span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Local Engine</span>`;
+
+                const metricBadge = project.metric
+                    ? `<div class="mb-4 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                        <i data-lucide="sparkles" class="w-3 h-3 animate-pulse text-cyan-400"></i>
+                        <span class="text-[10px] font-mono font-bold tracking-wider uppercase">${project.metric}</span>
+                       </div>`
+                    : '';
+
+                return `
+                    <div class="rounded-3xl bg-white/5 border border-white/10 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/5 transition-all duration-300 flex flex-col h-full group relative overflow-hidden backdrop-blur-sm">
+                        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-400 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                ${metricBadge}
+                                <h3 class="font-sans font-bold text-lg text-white mb-2 leading-snug group-hover:text-cyan-300 transition-colors">
+                                    ${project.title}
+                                </h3>
+                                <p class="text-sm text-slate-400 font-sans leading-relaxed mb-6">
+                                    ${project.description}
+                                </p>
+                            </div>
+
+                            <div>
+                                <div class="flex flex-wrap gap-1.5 mb-6">${techBadges}</div>
+                                <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                                    <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 text-xs font-semibold text-slate-300 hover:text-white transition-colors group/link">
+                                        <i data-lucide="github" class="w-4 h-4 text-slate-400 group-hover/link:text-white transition-colors"></i>
+                                        <span>Code repository</span>
+                                    </a>
+                                    ${actionLink}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        // 10. LOCAL MESSAGE SYSTEM (Mirroring the Contact.tsx component with LocalStorage sync)
+        function loadLocalMessages() {
+            const saved = localStorage.getItem('niraj_portfolio_messages');
+            if (saved) {
+                try {
+                    localMessages = JSON.parse(saved);
+                    renderLocalMessages();
+                } catch (e) {
+                    localMessages = [];
+                }
+            }
+        }
+
+        function renderLocalMessages() {
+            const panel = document.getElementById("local-messages-panel");
+            const list = document.getElementById("local-messages-list");
+            
+            if (localMessages.length === 0) {
+                panel.classList.add("hidden");
+                return;
+            }
+
+            panel.classList.remove("hidden");
+            list.innerHTML = localMessages.map(msg => {
+                return `
+                    <div class="p-3.5 rounded-2xl bg-slate-950/60 border border-white/5 relative group transition-colors hover:bg-slate-950">
+                        <button 
+                            onclick="deleteLocalMessage('${msg.id}')"
+                            class="absolute top-2.5 right-2.5 p-1 text-slate-500 hover:text-rose-400 rounded transition-colors opacity-0 group-hover:opacity-100 cursor-pointer"
+                            title="Delete log"
+                        >
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span class="font-bold truncate max-w-[120px]">${msg.name}</span>
+                            <span>${msg.date}</span>
+                        </div>
+                        <p class="text-[11px] font-mono text-slate-500 mt-0.5 truncate">${msg.email}</p>
+                        <p class="text-xs text-slate-300 mt-2 line-clamp-2 leading-relaxed">${msg.message}</p>
+                    </div>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const nameInput = document.getElementById("form-name");
+            const emailInput = document.getElementById("form-email");
+            const msgInput = document.getElementById("form-message");
+            const submitBtn = document.getElementById("form-submit-btn");
+            const errorAlert = document.getElementById("form-error-alert");
+            const successAlert = document.getElementById("form-success-alert");
+
+            errorAlert.classList.add("hidden");
+            successAlert.classList.add("hidden");
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const message = msgInput.value.trim();
+
+            if (!name || !email || !message) {
+                document.getElementById("form-error-text").textContent = "Please fill in all the required fields.";
+                errorAlert.classList.remove("hidden");
+                return;
+            }
+
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                document.getElementById("form-error-text").textContent = "Please enter a valid email address.";
+                errorAlert.classList.remove("hidden");
+                return;
+            }
+
+            // Simulate submitting delay
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<div class="w-5 h-5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></div>`;
+
+            setTimeout(() => {
+                const newMessage = {
+                    id: 'msg-' + Date.now(),
+                    name: name,
+                    email: email,
+                    message: message,
+                    date: new Date().toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    })
+                };
+
+                localMessages = [newMessage, ...localMessages];
+                localStorage.setItem('niraj_portfolio_messages', JSON.stringify(localMessages));
+                renderLocalMessages();
+
+                // Reset form & state
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<span>Transmit Message</span><i data-lucide="send" class="w-4 h-4"></i>`;
+                lucide.createIcons();
+
+                nameInput.value = '';
+                emailInput.value = '';
+                msgInput.value = '';
+
+                successAlert.classList.remove("hidden");
+                
+                // Hide success alert after 5 seconds
+                setTimeout(() => {
+                    successAlert.classList.add("hidden");
+                }, 5000);
+
+            }, 800);
+        }
+
+        function deleteLocalMessage(id) {
+            localMessages = localMessages.filter(msg => msg.id !== id);
+            localStorage.setItem('niraj_portfolio_messages', JSON.stringify(localMessages));
+            renderLocalMessages();
+        }
+    </script>
+</body>
+</html>
