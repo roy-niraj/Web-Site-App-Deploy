@@ -1,6 +1,0 @@
-{
-  "name": "Bihar Employment Overseas",
-  "description": "Bihar's leading overseas recruitment consultancy helping workers secure work visas and jobs in Gulf countries, Russia, Malaysia, and more in fields like Electrical, Civil, Mechanical, Warehousing, and Hospitality.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
