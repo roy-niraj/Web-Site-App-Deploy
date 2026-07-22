@@ -1,0 +1,6 @@
+{
+  "name": "AI Data Analysis Roy Assistant",
+  "description": "Smart Excel and CSV analyzer by Roy featuring primary key deduplication, data cleaning, interactive dashboard charts, Gemini AI insights, and predictive forecasting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
